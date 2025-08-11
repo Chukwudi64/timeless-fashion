@@ -4,7 +4,7 @@ import { HiLightBulb } from "react-icons/hi2";
 
 const About = () => {
     return ( 
-        <div className="league-spartan flex flex-col items-center justify-center">
+        <div className="league-spartan flex flex-col items-center justify-center px-10 xl:px-0">
             <div className="flex gap-5 items-center ml-7 md:ml=0">
                 <h1 className="text-[50px] 2xl:text-[64px] text-black font-semibold">About Jespheb Design</h1>
                 <div className="hidden md:flex h-[50px] w-[50px] rounded rounded-full bg-black text-white items-center justify-center">
