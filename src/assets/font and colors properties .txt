@@ -1,0 +1,9 @@
+Font name: League spartan 
+size: Biggest size - 96 (Bold) and (thin) & sub header - 24 and button (padding RL30 TB20) = Hero section
+	mid header - 64 (#000000), sub header: 32 light (#333333)
+	smallest size: 20 light
+Color: #000000 #ffffff #333333
+whatsapp color: #159736
+instgram color: #EA1C68
+facebook color: #3D3FC0
+footer color: #111724

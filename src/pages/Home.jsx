@@ -10,6 +10,8 @@ import CustomOrderForm from "../components/CustomOrderForm"
 import FAQ from "../components/FAQ"
 import FooterCTA from "../components/FooterCTA"
 import Footer from "../components/Footer"
+import About from "../components/About"
+import Contact from "../components/Contact"
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState("home")
@@ -45,11 +47,16 @@ const Home = () => {
       case "about":
         return (
           <div className="min-h-screen pt-20 px-4">
-            <h1 className="text-4xl font-bold text-center">About Us</h1>
+            <About />
           </div>
         )
       case "contact":
-        return <CustomOrderForm />
+        return (
+          <>
+            <Contact />
+            <CustomOrderForm />
+          </>
+        )
       case "order":
         return (
           <div className="min-h-screen pt-20 px-4">

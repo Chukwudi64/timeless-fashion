@@ -1,1 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+    --color-mission-bg: #D9D9D933;
+    --color-whatsapp-grn: #22C34A;
+    --color-instagram-red: #EA1C68;
+    --color-facebook-blue: #3D3FC0;
+}
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+    .league-spartan {
+        font-family: "League Spartan", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+}
