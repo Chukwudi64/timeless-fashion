@@ -46,15 +46,16 @@ const Home = () => {
         return <Collections />
       case "about":
         return (
-          <div className="min-h-screen pt-20 px-4">
+          <>
             <About />
-          </div>
+            <FooterCTA />
+          </>
         )
       case "contact":
         return (
           <>
             <Contact />
-            <CustomOrderForm />
+          <FooterCTA />
           </>
         )
       case "order":
