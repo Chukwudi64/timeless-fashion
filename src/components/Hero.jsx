@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi"
+import { Link } from "react-router-dom"
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -52,34 +53,36 @@ const Hero = () => {
   return (
     <section className="relative overflow-hidden">
       <div
-        className="relative bg-cover bg-center bg-no-repeat transition-all duration-500"
+        className="relative bg-cover bg-no-repeat transition-all duration-500"
         style={{
           backgroundImage: `url(${slides[currentSlide].bgImage})`,
           minHeight: "600px",
+          fontFamily: ""
         }}
       >
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-opacity-20"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[500px]">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center min-h-[500px]">
             <div className="text-white z-10">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-white drop-shadow-lg">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal leading-[100%] tracking-normal mb-4 text-white drop-shadow-lg uppercase" style={{ fontFamily: "Against, sans-serif" }}>
                 {slides[currentSlide].title}
                 <br />
-                <span className="font-light text-white text-2xl sm:text-3xl lg:text-4xl opacity-90">
+                <span className="font-light text-white text-2xl sm:text-3xl lg:text-4xl opacity-90 capitalize">
                   {slides[currentSlide].subtitle}
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl mb-8 text-white font-light opacity-90 drop-shadow-md">
+              <p className="text-lg sm:text-xl mb-8 text-white font-light opacity-90 drop-shadow-md league-spartan">
                 {slides[currentSlide].description}
               </p>
-              <button
-                className="bg-white text-black font-medium transition-colors hover:bg-gray-800 drop-shadow-lg rounded-full"
+              <Link
+                to="/collections"
+                className="bg-white text-black font-medium transition-colors hover:bg-gray-800 hover:text-white drop-shadow-lg rounded-full league-spartan"
                 style={{ padding: "20px 30px" }}
               >
                 Explore the Collections
-              </button>
+              </Link>
             </div>
             {/* Remove the separate image div since we're using background image */}
           </div>
@@ -87,7 +90,7 @@ const Hero = () => {
       </div>
 
     {/* Navigation Arrows */}
-      <div className="absolute bottom-4 right-16 flex space-x-2">
+     <div className="absolute bottom-16 right-4 sm:bottom-4 sm:right-16 flex space-x-2 z-20">
         <button
           onClick={prevSlide}
             className="bg-white bg-opacity-50 text-black p-3 rounded-full hover:bg-opacity-75 transition-all"
@@ -103,7 +106,7 @@ const Hero = () => {
       </div>
 
       {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
         {slides.map((_, index) => (
           <button
             key={index}

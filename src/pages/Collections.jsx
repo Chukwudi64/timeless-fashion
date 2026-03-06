@@ -76,8 +76,8 @@ const Collections = () => {
     <section className="py-12 lg:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-black mb-4">Our Collections</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-black mb-4" style={{ fontFamily: "Against, sans-serif" }}>OUR COLLECTIONS</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-light league-spartan">
             Discover our latest designs that blend traditional African elegance with contemporary fashion
           </p>
         </div>
@@ -89,7 +89,7 @@ const Collections = () => {
               key={index}
               onClick={() => setActiveFilter(collection.name)}
               className={`font-medium rounded-full transition-colors ${
-                activeFilter === collection.name ? "bg-black text-white" : "bg-white text-gray-600 hover:bg-gray-100"
+                activeFilter === collection.name ? "bg-black text-white" : "bg-white text-gray-600 hover:bg-gray-100 league-spartan"
               }`}
               style={{ padding: "20px 30px" }}
             >
@@ -105,14 +105,14 @@ const Collections = () => {
               key={product.id}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
             >
-              <img src={product.image || "/placeholder.svg"} alt={product.name} className="w-full h-64 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black mb-2">{product.name}</h3>
+              <img src={product.image || "/placeholder.svg"} alt={product.name} className="w-full object-cover" />
+              <div className="p-6 league-spartan">
+                <h3 className="text-xl font-semibold text-black mb-2 uppercase">{product.name}</h3>
                 <p className="text-gray-600 mb-4 text-sm font-regular">{product.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold text-black">{product.price}</span>
+                  <span className="text-lg font-semibold text-black" style={{ fontFamily: "sans-serif" }}>{product.price}</span>
                   <button
-                    className="bg-black text-white font-medium hover:bg-gray-800 transition-colors text-sm rounded-full"
+                    className="bg-black text-white font-medium hover:bg-gray-800 transition-colors text-sm rounded-full uppercase"
                     style={{ padding: "15px 25px" }}
                   >
                     Order Now

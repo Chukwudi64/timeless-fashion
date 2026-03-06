@@ -19,3 +19,14 @@
         font-style: normal;
     }
 }
+
+@font-face {
+  font-family: "Against";
+  src: url("./assets/fonts/against-regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  /* font-family: "Against", sans-serif; */
+}

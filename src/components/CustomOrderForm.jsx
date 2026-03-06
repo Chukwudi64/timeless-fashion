@@ -28,13 +28,13 @@ const CustomOrderForm = () => {
     <section className="py-12 lg:py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-black mb-4">Tell Us About Your Dream Piece</h2>
+          <h2 className="text-4xl sm:text-5xl font-semibold text-black mb-4 uppercase" style={{ fontFamily: "Against, sans-serif" }}>Tell Us About Your Dream Piece</h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-8">
+        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-8 league-spartan">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-black mb-2">Full Name</label>
+              <label className="block text-sm font-bold text-black mb-2">Full Name</label>
               <input
                 type="text"
                 name="fullName"
@@ -45,7 +45,7 @@ const CustomOrderForm = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-black mb-2">Phone Number</label>
+              <label className="block text-sm font-bold text-black mb-2">Phone Number</label>
               <input
                 type="tel"
                 name="phoneNumber"
@@ -58,7 +58,7 @@ const CustomOrderForm = () => {
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-medium text-black mb-2">Email Address</label>
+            <label className="block text-sm font-bold text-black mb-2">Email Address</label>
             <input
               type="email"
               name="emailAddress"
@@ -70,7 +70,7 @@ const CustomOrderForm = () => {
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-medium text-black mb-2">Design Category</label>
+            <label className="block text-sm font-bold text-black mb-2">Design Category</label>
             <select
               name="designCategory"
               value={formData.designCategory}
@@ -79,14 +79,13 @@ const CustomOrderForm = () => {
             >
               <option value="">Select a category</option>
               <option value="bridal">Bridal</option>
-              <option value="casual">Casual Wear</option>
-              <option value="formal">Formal Wear</option>
-              <option value="traditional">Traditional</option>
+              <option value="ready-to-wear">Ready to Wear</option>
+              <option value="custom-pieces">Custom Pieces</option>
             </select>
           </div>
 
           <div className="mb-8">
-            <label className="block text-sm font-medium text-black mb-2">Describe Your Vision</label>
+            <label className="block text-sm font-bold text-black mb-2">Describe Your Vision</label>
             <textarea
               name="specificRequirements"
               value={formData.specificRequirements}
@@ -100,14 +99,14 @@ const CustomOrderForm = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <button
               type="submit"
-              className="flex-1 bg-black text-white font-medium hover:bg-gray-800 transition-colors rounded-full"
+              className="flex-1 bg-black text-white font-medium hover:bg-gray-800 transition-colors rounded-full uppercase"
               style={{ padding: "20px 30px" }}
             >
               Submit Order Request
             </button>
             <button
               type="button"
-              className="flex-1 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors flex items-center justify-center gap-2 rounded-full"
+              className="flex-1 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors flex items-center  justify-center gap-2 rounded-full uppercase"
               style={{ padding: "20px 30px" }}
             >
               <FaWhatsapp />

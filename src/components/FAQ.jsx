@@ -37,8 +37,8 @@ const FAQ = () => {
     <section className="py-12 lg:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-black mb-4">Frequently Asked Questions</h2>
-          <p className="text-lg text-gray-600 font-light">Quick answers to questions you may have about our services</p>
+          <h2 className="text-4xl sm:text-5xl font-semibold text-black mb-4 uppercase" style={{ fontFamily: "Against, sans-serif" }}>Frequently Asked Questions</h2>
+          <p className="text-lg text-gray-600 font-light league-spartan">Quick answers to questions you may have about our services</p>
         </div>
 
         <div className="space-y-4">
@@ -48,7 +48,7 @@ const FAQ = () => {
                 onClick={() => toggleFaq(index)}
                 className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
               >
-                <span className="font-medium text-black">{faq.question}</span>
+                <span className="font-medium text-black league-spartan">{faq.question}</span>
                 {openFaq === index ? (
                   <FaChevronUp className="text-gray-500" />
                 ) : (
@@ -57,7 +57,7 @@ const FAQ = () => {
               </button>
               {openFaq === index && (
                 <div className="px-6 pb-4">
-                  <p className="text-gray-600 font-light">{faq.answer}</p>
+                  <p className="text-gray-600 font-light league-spartan">{faq.answer}</p>
                 </div>
               )}
             </div>

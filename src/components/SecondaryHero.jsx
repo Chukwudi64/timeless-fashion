@@ -1,57 +1,97 @@
-import WTM from "../assets/wear-the-moment.png";
-import R4 from "../assets/rectangle-4.png";
-import R5 from "../assets/rectangle-5.png";
+import WTM from "../assets/wear-the-moment.webp";
+import R4 from "../assets/rectangle-4.webp";
+import R5 from "../assets/rectangle-5.webp";
+import { GoArrowDownRight } from "react-icons/go";
+
 const SecondaryHero = () => {
   return (
-    <section className="py-12 lg:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-black mb-2">Wear the moment.</h2>
-          <p className="text-2xl text-gray-600 font-light">Own the look.</p>
+    <section className="bg-[#f5f5f5] py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        {/* Top Heading */}
+        <div className="mb-14">
+          <h2
+            className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-black"
+            style={{ fontFamily: "Against, serif" }}
+          >
+            WEAR THE MOMENT
+          </h2>
+
+          <div className="flex items-center gap-4 mt-4">
+            <p className="text-2xl text-gray-600 font-light league-spartan">
+              Own the look.
+            </p>
+
+            {/* small circular arrow */}
+            <div className="w-8 h-8 flex items-center justify-center bg-black text-white rounded-full text-sm">
+              <GoArrowDownRight />
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="lg:col-span-1">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          
+          {/* Large Left Image */}
+          <div>
             <img
               src={WTM}
-              alt="Model in Yellow Coat"
-              className="w-full h-64 lg:h-96 object-cover rounded-lg"
+              alt="Editorial fashion look"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
-          <div className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-                <img
-              src={R4}
-              alt="Checkered Outfit"
-              className="w-full h-48 object-cover rounded-lg"
-            />
+
+          {/* Right Column */}
+          <div className="flex flex-col gap-8">
+            
+            {/* Top Right Image */}
             <img
-              src={R5}
-              alt="Checkered Outfit"
-              className="w-full h-48 object-cover rounded-lg"
+              src={R4}
+              alt="Blue sculptural outfit"
+              className="w-full h-[300px] lg:h-[340px] object-cover rounded-2xl"
             />
-            </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-4xl sm:text-5xl font-semibold text-black mb-2">Sustainably designed,</h3>
-              <p className="text-2xl text-gray-600 font-light">effortlessly worn.</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <button
-                className="bg-black text-white font-medium hover:bg-gray-800 transition-colors rounded-full"
-                style={{ padding: "20px 30px" }}
-              >
-                Shop Now
-              </button>
-              <p className="text-sm text-gray-500 mt-2 font-medium">
-                Elevate your wardrobe with our exclusive collections.
-                Designed for modern living.
-              </p>
+
+            <img
+                src={R5}
+                alt="Minimal beige outfit"
+                className="w-full h-[300px] object-cover rounded-2xl"
+              />
+
+            {/* Bottom Right Section */}
+            <div className="grid gap-6 items-end">
+              
+              
+
+              <div>
+                <h3
+                  className="text-4xl sm:text-4xl font-medium leading-tight text-black"
+                  style={{ fontFamily: "Against, serif" }}
+                >
+                  SUSTAINABLY DESIGNED,
+                </h3>
+
+                <p className="text-xl text-gray-600 font-light mt-2 league-spartan">
+                  effortlessly worn.
+                </p>
+
+                <div className="flex items-center gap-6 mt-6">
+                  <button className="bg-black text-white px-8 py-4 rounded-full text-sm tracking-wide hover:bg-gray-800 transition league-spartan">
+                    SHOP NOW
+                  </button>
+
+                  <p className="text-gray-500 max-w-xs font-bold league-spartan">
+                    Elevate your wardrobe with our exclusive collections,
+                    designed for modern living
+                  </p>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SecondaryHero
+export default SecondaryHero;
