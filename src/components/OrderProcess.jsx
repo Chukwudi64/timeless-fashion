@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const OrderProcess = () => {
   const steps = [
     {
@@ -20,30 +22,55 @@ const OrderProcess = () => {
       title: "Delivery",
       description: "Receive your beautiful, custom creation",
     },
-  ]
+  ];
+
+  // Motion variants for the steps
+  const stepVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.2, duration: 0.5, type: "spring", stiffness: 100 },
+    }),
+  };
 
   return (
     <section className="py-12 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-black mb-4 uppercase" style={{ fontFamily: "Against, sans-serif" }}>Place Your Order</h2>
-          <p className="text-lg text-gray-600 font-light league-spartan">Let's create something beautiful together</p>
+          <h2
+            className="text-4xl sm:text-5xl font-semibold text-black mb-4 uppercase"
+            style={{ fontFamily: "Against, sans-serif" }}
+          >
+            Place Your Order
+          </h2>
+          <p className="text-lg text-gray-600 font-light league-spartan">
+            Let's create something beautiful together
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <div key={index} className="text-center league-spartan">
+            <motion.div
+              key={index}
+              className="text-center league-spartan"
+              variants={stepVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              custom={index}
+            >
               <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-lg">{step.number}</span>
               </div>
               <h3 className="font-bold text-black mb-2 text-lg">{step.title}</h3>
               <p className="text-gray-600 text-sm font-regular">{step.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default OrderProcess
+export default OrderProcess;

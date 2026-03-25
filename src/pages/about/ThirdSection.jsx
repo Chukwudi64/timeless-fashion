@@ -1,43 +1,86 @@
+import { motion } from "framer-motion";
 import { Eye, Lightbulb } from "lucide-react";
+
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
 
 const ThirdSection = () => {
   return (
     <section className="px-6 lg:px-16 py-16">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+      <motion.div
+        className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
 
         {/* Mission */}
-        <div className="bg-gray-100 p-8 rounded-lg">
+        <motion.div
+          variants={cardVariant}
+          whileHover={{ y: -8, scale: 1.02 }}
+          className="bg-gray-100 p-8 rounded-lg transition"
+        >
           <div className="bg-black w-10 h-10 flex items-center justify-center rounded mb-4">
             <Eye className="text-white w-5 h-5" />
           </div>
 
-          <h3 className="text-3xl font-semibold mb-4" style={{ fontFamily: "Against, serif" }}>OUR MISSION</h3>
+          <h3 className="text-3xl font-semibold mb-4" style={{ fontFamily: "Against, serif" }}>
+            OUR MISSION
+          </h3>
 
           <p className="text-gray-600 leading-relaxed league-spartan">
             Our mission is to empower individuals and brands through fashion,
             creativity, and branding—transforming identity into confidence,
             and confidence into influence.
           </p>
-        </div>
+        </motion.div>
 
         {/* Vision */}
-        <div className="bg-gray-100 p-8 rounded-lg">
+        <motion.div
+          variants={cardVariant}
+          whileHover={{ y: -8, scale: 1.02 }}
+          className="bg-gray-100 p-8 rounded-lg"
+        >
           <div className="bg-black w-10 h-10 flex items-center justify-center rounded mb-4">
             <Lightbulb className="text-white w-5 h-5" />
           </div>
 
-          <h3 className="text-3xl font-semibold mb-4" style={{ fontFamily: "Against, serif" }}>OUR VISION</h3>
+          <h3 className="text-3xl font-semibold mb-4" style={{ fontFamily: "Against, serif" }}>
+            OUR VISION
+          </h3>
 
           <p className="text-gray-600 leading-relaxed league-spartan">
             To become a global symbol of presence and confidence, inspiring
             individuals and brands to boldly own their identity and make a
             lasting impact.
           </p>
-        </div>
+        </motion.div>
 
         {/* Values */}
-        <div className="bg-gray-100 p-8 rounded-lg">
-          <h3 className="text-3xl font-semibold mb-6" style={{ fontFamily: "Against, serif" }}>VALUES</h3>
+        <motion.div
+          variants={cardVariant}
+          whileHover={{ y: -8, scale: 1.02 }}
+          className="bg-gray-100 p-8 rounded-lg"
+        >
+          <h3 className="text-3xl font-semibold mb-6" style={{ fontFamily: "Against, serif" }}>
+            VALUES
+          </h3>
 
           <ul className="space-y-4 text-gray-600 league-spartan">
             <li>
@@ -64,31 +107,33 @@ const ThirdSection = () => {
               everything we create.
             </li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Next Project */}
-        <div className="bg-gray-100 p-8 rounded-lg">
-          <h3 className="text-3xl font-semibold mb-6" style={{ fontFamily: "Against, serif" }}>NEXT PROJECT</h3>
+        <motion.div
+          variants={cardVariant}
+          whileHover={{ y: -8, scale: 1.02 }}
+          className="bg-gray-100 p-8 rounded-lg"
+        >
+          <h3 className="text-3xl font-semibold mb-6" style={{ fontFamily: "Against, serif" }}>
+            NEXT PROJECT
+          </h3>
 
           <p className="text-gray-600 leading-relaxed league-spartan">
             Jespheb’s next project is the launch of the “Own Your Presence”
             Capsule Collection, a limited-edition line of 6–10 timeless,
             versatile pieces designed to embody confidence, identity, and
-            innovation. Inspired by our muse Doris Amadi and guided by
-            sustainable practices, the collection will feature eco-conscious
-            fabrics, bold yet minimalist silhouettes, and powerful storytelling
-            through fashion editorials and digital campaigns.
+            innovation...
           </p>
 
           <p className="text-gray-600 leading-relaxed mt-4 league-spartan">
             The launch will be amplified with a hybrid showcase event,
             influencer collaborations, and a customer engagement campaign,
-            positioning Jespheb as more than a fashion brand—a movement that
-            empowers individuals to own their presence with style and purpose.
+            positioning Jespheb as more than a fashion brand—a movement...
           </p>
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 };

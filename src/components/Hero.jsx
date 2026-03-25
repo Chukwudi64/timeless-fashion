@@ -1,8 +1,11 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi"
 import { Link } from "react-router-dom"
+import { motion, AnimatePresence } from "framer-motion"
+
+import heroImg1 from "../assets/heroImg1.webp"
+import heroImg2 from "../assets/heroImg2.webp"
+import heroImg3 from "../assets/heroImg3.webp"
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -13,60 +16,75 @@ const Hero = () => {
       title: "Timeless Fashion,",
       subtitle: "Conscious Choices",
       description: "Sustainably designed effortlessly worn. Our pieces are made with premium materials and wardrobe that stands the test of time.",
-      image: "../../public/images/hero-main.png",
-      bgImage: "../../public/images/hero-main.png",
+      bgImage: heroImg1,
     },
     {
       id: 2,
       title: "Elegant Designs,",
       subtitle: "Modern Style",
-      description:
-        "Discover our latest collection of contemporary African fashion that blends tradition with innovation",
-      image: "/placeholder.svg?height=600&width=500&text=Fashion+Model+2",
-      bgImage: "../../public/images/hero-main.png",
+      description: "Discover our latest collection of contemporary African fashion that blends tradition with innovation",
+      bgImage: heroImg2,
     },
     {
       id: 3,
       title: "Crafted Excellence,",
       subtitle: "Unique Beauty",
-      description:
-        "Each piece is carefully crafted by skilled artisans using premium materials and traditional techniques",
-      image: "/placeholder.svg?height=600&width=500&text=Fashion+Model+3",
-      bgImage: "../../public/images/hero-main.png",
+      description: "Each piece is carefully crafted by skilled artisans using premium materials and traditional techniques",
+      bgImage: heroImg3,
     },
   ]
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
-
-  // Auto-play carousel
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000)
     return () => clearInterval(timer)
   }, [])
 
-  return (
-    <section className="relative overflow-hidden">
-      <div
-        className="relative bg-cover bg-no-repeat transition-all duration-500"
-        style={{
-          backgroundImage: `url(${slides[currentSlide].bgImage})`,
-          minHeight: "600px",
-          fontFamily: ""
-        }}
-      >
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-opacity-20"></div>
+  // Framer Motion Variants
+  const textVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -50, transition: { duration: 0.5 } },
+  }
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center min-h-[500px]">
-            <div className="text-white z-10">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-normal leading-[100%] tracking-normal mb-4 text-white drop-shadow-lg uppercase" style={{ fontFamily: "Against, sans-serif" }}>
+  const bgVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+    exit: { opacity: 0, transition: { duration: 1 } },
+  }
+
+  return (
+    <section className="relative overflow-hidden min-h-[600px]">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={slides[currentSlide].id}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${slides[currentSlide].bgImage})` }}
+          variants={bgVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 z-10">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slides[currentSlide].id}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center min-h-[500px]"
+          >
+            <div className="text-white">
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-normal leading-[100%] mb-4 text-white drop-shadow-lg uppercase"
+                style={{ fontFamily: "Against, sans-serif" }}
+              >
                 {slides[currentSlide].title}
                 <br />
                 <span className="font-light text-white text-2xl sm:text-3xl lg:text-4xl opacity-90 capitalize">
@@ -84,29 +102,28 @@ const Hero = () => {
                 Explore the Collections
               </Link>
             </div>
-            {/* Remove the separate image div since we're using background image */}
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-    {/* Navigation Arrows */}
-     <div className="absolute bottom-16 right-4 sm:bottom-4 sm:right-16 flex space-x-2 z-20">
+      {/* Navigation Arrows */}
+      <div className="absolute bottom-16 right-4 sm:bottom-4 sm:right-16 flex space-x-2 z-20">
         <button
           onClick={prevSlide}
-            className="bg-white bg-opacity-50 text-black p-3 rounded-full hover:bg-opacity-75 transition-all"
+          className="bg-white bg-opacity-50 text-black p-3 rounded-full hover:bg-opacity-75 transition-all cursor-pointer"
         >
           <FiArrowLeft />
         </button>
         <button
           onClick={nextSlide}
-             className="bg-white bg-opacity-50 text-black p-3 rounded-full hover:bg-opacity-75 transition-all"
+          className="bg-white bg-opacity-50 text-black p-3 rounded-full hover:bg-opacity-75 transition-all cursor-pointer"
         >
           <FiArrowRight />
         </button>
       </div>
 
-      {/* Dots Indicator */}
-  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+      {/* Dots */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
